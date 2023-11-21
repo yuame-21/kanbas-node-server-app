@@ -35,9 +35,8 @@ function ModuleRoutes(app) {
 
     app.get("/api/courses/:cid/modules", (req, res) => {
         const { cid } = req.params;
-        const c = db.courses.find((c) => c.id.$oid === cid);
-        const modules = db.modules
-            .filter((m) => m.course === c.number);
+         // const c = db.courses.find((c) => c.id === cid);
+        const modules = db.modules.filter((m) => m.course === cid);
         res.send(modules);
     });
 }
